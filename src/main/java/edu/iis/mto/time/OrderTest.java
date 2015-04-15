@@ -1,14 +1,19 @@
 package edu.iis.mto.time;
 
-import static org.junit.Assert.*;
-
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 public class OrderTest {
 
-	@Test
+	@Test(expected = OrderExpiredException.class)
 	public void testConfirm_expectedOrderExpiredException() {
-		fail("Not yet implemented");
+		
+
+		
+		
+		Order order = new Order(new DateTime().plusDays(2));
+		order.submit();
+		order.confirm();
 	}
 
 }
